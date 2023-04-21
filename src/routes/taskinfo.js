@@ -81,4 +81,18 @@ taskRoutes.put('/:id', (req, res) => {
     }
 })
 
+taskRoutes.delete('/:id', (req, res) => {
+    let idFromURL = req.params.id;
+    let index = taskData.findIndex(task => task.id === idFromURL);
+    console.log(index);
+    if (index != undefined) {
+        taskData.splice(index,1);
+        res.status(200);
+        res.send('Task deleted succesfully.')
+    } else {
+        res.status(400);
+        res.send('Requested task not found. Unable to delete.')
+    }
+})
+
 module.exports = taskRoutes;
