@@ -13,5 +13,5 @@ const PORT = 8080;
 routes.use('/tasks', taskInfo);
 
 server.listen(PORT, (error) =>  {
-    console.log("Server running.");
+    console.log("Server running on port " + PORT);
 });
